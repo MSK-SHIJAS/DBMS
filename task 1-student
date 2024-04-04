@@ -2,8 +2,8 @@ create database sampleDB;
 use sampleDB;
 create table students(s_id int primary key,s_name varchar(30),course varchar(15));
 
-insert into students values(1,'rahul','Math'),(2,'Amritha','Math'),(3,'Achu','Math'),(4,'Bensy','cs'),(5,'Banu','cs'),
-(6,'Brinda','cs'),(7,'randeep','Bio'),(8,'Dancy','Bio'),(9,'Manusha','Chem'),(10,'Zeba','history');
+insert into students values(1,'rahul','cs'),(2,'Amritha','Math'),(3,'Achu','physics'),(4,'athul','Math'),(5,'Banu','eng'),
+(6,'Brinda','cs'),(7,'randeep','Bio'),(8,'Dancy','Bio'),(9,'Manusha','Chem'),(10,'arnab','economics');
 
 select * from students;
 
