@@ -1,0 +1,9 @@
+use sampleDB;
+
+select * from students;
+
+create table course(c_ID int primary key,c_name varchar(30),student_ID int,foreign key(student_ID) references students (s_id));
+
+insert into course values(1,'Math',1),(2,'cs',4),(3,'Bio',7),(5,'chem',9),(6,'history',10);
+
+select * from course;
