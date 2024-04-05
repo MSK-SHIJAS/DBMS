@@ -1,0 +1,22 @@
+use sampleDB;
+
+create table products(p_ID int primary key,p_Name varchar(30),category varchar(30),price decimal,stockqty int); 
+
+insert into products values(1,'Mug','plastics',100,10),(3,'Lamp','Electronics',50,5),(5,'Mug','plastics',15,3),
+(7,'Lenovo','Electronics',2000,9),(8,'Hanger','plastics',20,6);
+
+select * from products;
+
+select * from products where category = 'Electronics';
+
+select * from products where price between 10 AND 30;
+
+select * from products where price NOT IN (30,50);
+
+select * from products where p_Name = 'Mug';
+
+select distinct category from products;
+
+SELECT * FROM products WHERE Stockqty > 0 AND Price <= 25 ORDER BY Price ASC;
+
+SELECT * FROM products where p_Name like 'L%';
