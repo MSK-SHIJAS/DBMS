@@ -1,0 +1,43 @@
+create database COMPANY;
+USE COMPANY;
+
+CREATE TABLE orders (
+    orderid INT PRIMARY KEY,
+    orderstatus VARCHAR(50),
+    orderdate DATE,
+    orderplace varchar(30),
+    totalamount DECIMAL(10, 2)
+);
+
+INSERT INTO orders (orderid, orderstatus, orderdate,orderplace,totalamount) VALUES
+(1, 'Processing', '2023-10-05', 'Dubai',150.50),
+(2, 'Shipped', '2023-10-06','california', 220.75),
+(3, 'Completed', '2023-10-07','india', 300.00),
+(4, 'Processing', '2023-10-08', 'iran',180.25),
+(5, 'Completed', '2023-10-09','california', 250.00),
+(6, 'Shipped', '2023-10-10', 'california',350.50),
+(7, 'Processing', '2023-10-11','canada', 200.00);
+
+SELECT * FROM orders;
+
+-- Calculate the average order amount for orders with a status of "Processing"
+SELECT AVG(totalamount) AS avg_order_amount
+FROM orders
+WHERE orderstatus = 'Processing';
+
+
+-- Count the number of orders shipped to California (assuming a 'state' column exists)
+select count(orderid)  from orders where orderplace = 'california';
+
+
+-- Calculate the total amount of sales for orders placed between October 5th and 10th, 2023
+SELECT SUM(totalamount) AS total_sales_amount
+FROM orders
+WHERE orderdate BETWEEN '2023-10-05' AND '2023-10-10';
+
+
+
+-- List all orders that have been completed and have a total amount greater than $200
+SELECT *
+FROM orders
+WHERE orderstatus = 'Completed' AND totalamount > 200;
