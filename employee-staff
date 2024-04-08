@@ -1,0 +1,55 @@
+create database employee;
+use employee;
+
+Create table Employee( emp_id int primary key, emp_name varchar(20), emp_salary decimal(30,2), emp_department varchar(20));
+
+insert into Employee values(1,'Jacob',80000,'IT'),(2,'Rany',800,'finance'),(3,'Shijas',70000,'finance'),(4,'Any',10000,'sales'),(5,'June',40000,'accounts');
+
+select * from Employee;
+
+-- Question: Add a new column 'emp_age' to the 'Employee' table.
+
+ALTER TABLE Employee add empage int;
+
+-- Question: Update the 'emp_age' to 30 for the employee with emp_id = 1 in the 'Employee' table.
+
+update Employee set empage=30 where emp_id=1;
+
+-- Question: Delete the employee with emp_id = 2 from the 'Employee' table.
+
+delete from Employee where emp_id=2;
+
+-- Question: Rename the 'Employee' table to 'Staff'.
+
+alter table Employee rename to  staff;
+
+-- Question: Select employees from the 'Staff' table with a salary greater than 60000 AND working in the 'IT' department.
+
+select *from staff where emp_salary>60000 and emp_department='IT';
+
+-- Question: Select employees from the 'Staff' table with an age between 25 and 35.
+
+update staff set empage=25 where emp_id=4;
+select *from staff where empage between 25 and 30;
+
+
+-- Question: Select employees from the 'Staff' table working in either 'IT' or 'Finance' department.
+
+select * from staff where emp_department='IT' OR emp_department='finance';
+
+-- Question: Find the total number of employees in the 'Staff' table.
+
+select count(emp_id) from staff;
+
+-- Question: Find the maximum and minimum salary among the employees in the 'Staff' table.
+
+select max(emp_salary) as empsalary,min(emp_salary) from staff;
+
+-- Question: Calculate the total salary and average salary of the employees in the 'Staff' table.
+select sum(emp_salary) as empsalary,avg(emp_salary) from staff;
+
+-- Question: Select employees from the 'Staff' table whose names start with 'J'.
+
+select * from staff where emp_name like 'j%';
+
+
