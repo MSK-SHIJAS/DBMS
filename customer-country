@@ -1,0 +1,71 @@
+create database customer;
+use customer;
+
+
+
+
+-- a) Create the "customer" table with fields and set "customer id" as the primary key:
+
+CREATE TABLE customer (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(20),
+     country VARCHAR(20),
+    city VARCHAR(20),
+    postcode VARCHAR(20)   
+);
+ 
+ drop table customer;
+-- b) Insert 5 data entries into the "customer" table:
+
+INSERT INTO customer (customer_id, customer_name, country, city, postcode) 
+VALUES
+    (1, 'rahul', 'india', 'delhi', '8954'),
+    (2, 'anas', 'indonesia', 'taiwan', '851234'),
+    (3, 'zain', 'pakistan', 'lahore', '905874'),
+    (4, 'joseph', 'gemany', 'berlin', '7536'),
+    (5, 'rainy', 'mexico', 'tain', '9512')
+;
+
+-- c) Show all records from the "customer" table:
+
+SELECT * FROM customer;
+
+-- d) Retrieve the record from the "customer" table where the customer ID is 1:
+
+SELECT * FROM customer WHERE customer_id = 1;
+
+-- e) Find the distinct countries present in the "customer" table:
+
+SELECT DISTINCT country FROM customer;
+
+-- f)display all records from the "customer" table, sorted by country in descending order:
+
+SELECT * FROM customer ORDER BY country DESC;
+
+-- g) Show all records from the "customer" table, sorted by postal code in descending order:
+
+SELECT * FROM customer ORDER BY postcode DESC;
+
+-- h) Retrieve all records from the "customer" table, sorted by customer name:
+
+SELECT * FROM customer ORDER BY customer_name;
+
+-- i) Display all records from the "customer" table, sorted first by country and then by customer name:
+
+SELECT * FROM customer ORDER BY country, customer_name;
+
+-- j) Provide all records from the "customer" table, sorted by country in ascending order and then by customer name in descending order:
+
+SELECT * FROM customer ORDER BY country ASC,customer_name DESC;
+
+-- k) Show records from the "customer" table where the country is 'Germany', the city is 'Berlin', and the postal code is greater than 12000:
+
+SELECT * FROM customer WHERE country = 'gemany' AND city = 'berlin' AND postcode > '120';
+
+-- l) Retrieve records from the "customer" table for customers in 'Germany' or 'Mexico':
+
+SELECT * FROM customer WHERE country IN ('Germany', 'Mexico');
+
+-- m) Display records from the "customer" table where the country is not 'Mexico':
+
+SELECT * FROM customer WHERE country != 'Mexico';
